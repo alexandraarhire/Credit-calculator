@@ -1,0 +1,344 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CreditCalculatorBCR" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1246.4,808.8" sap2010:WorkflowViewState.IdRef="CreditCalculatorBCR_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="33">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart DisplayName="CreditCalculatorBCR" sap:VirtualizedContainerService.HintSize="745.6,744" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="existFile" />
+      <Variable x:TypeArguments="sd:DataTable" Name="table" />
+      <Variable x:TypeArguments="x:String" Name="valoare_dae" />
+      <Variable x:TypeArguments="x:String" Name="rata_lunara" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.7 300,113.6</av:PointCollection>
+        <x:Double x:Key="Height">707.19999999999993</x:Double>
+        <x:Double x:Key="Width">712.00000000000011</x:Double>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID7</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,113.6</av:Point>
+          <av:Size x:Key="ShapeSize">200,52.8</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,166.4 300,216.4</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:FileExistsX DisplayName="File Exists" Exists="[existFile]" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="C:\Users\Alexandra\Downloads\Input File - Loans.xlsx" />
+      <FlowStep.Next>
+        <FlowDecision x:Name="__ReferenceID0" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79.2,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <FlowDecision.Condition>
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="existFile" />
+          </FlowDecision.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <av:Point x:Key="ShapeLocation">260.4,216.4</av:Point>
+              <av:Size x:Key="ShapeSize">79.2,87.2</av:Size>
+              <av:PointCollection x:Key="FalseConnector">339.6,260 369.6,260 369.6,260.42 389.6,260.42</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">260.4,260 210,260</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <FlowDecision.True>
+            <FlowStep x:Name="__ReferenceID2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">10,233.6</av:Point>
+                  <av:Size x:Key="ShapeSize">200,52.8</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">110,286.4 110,336.4</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[table]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="C:\Users\Alexandra\Downloads\Input File - Loans.xlsx">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ReadRange>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">10,336.4</av:Point>
+                      <av:Size x:Key="ShapeSize">200,52.8</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">110,389.2 110,419.2 114.8,419.2 114.8,439.2</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,2152" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NSelectItem DisplayName="Select Item '-'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[table.Rows(0).Item(&quot;Need&quot;).ToString]" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="7">
+                                <x:String>-</x:String>
+                                <x:String>Investiţii imobiliare</x:String>
+                                <x:String>Investiţii imobiliare - certificat RoGBC</x:String>
+                                <x:String>Investiţii imobiliare - clasa energetica A</x:String>
+                                <x:String>Investiţii imobiliare - NOUA CASA</x:String>
+                                <x:String>Nevoi personale - credit nou</x:String>
+                                <x:String>Nevoi personale - credit de refinanţare</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="654, 245, 305, 40" ElementType="DropDown" FriendlyName="'-'" FullSelectorArgument="&lt;webctrl tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' aaname='Alege categoria:' /&gt;" Guid="52df7a33-3a03-4c40-a8a1-c3280b5a44c4" InformativeScreenshot="a597a70b1514f7cdaec0a86e919609c7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NSelectItem DisplayName="Select Item '-'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[table.Rows(0).Item(&quot;Product&quot;).ToString]" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="3">
+                                <x:String>-</x:String>
+                                <x:String>Impumut pentru nevoi personale</x:String>
+                                <x:String>Impumut pentru nevoi personale cu asigurare de viata si complexa</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="654, 278, 305, 40" ElementType="DropDown" FriendlyName="'-'" FullSelectorArgument="&lt;webctrl id='tip_produs' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tip_produs' tag='SELECT' type='' aaname='' /&gt;" Guid="613024e8-84de-461b-889d-bb4c8c0e4856" InformativeScreenshot="b3d205fcd4497eb35fcdbaa2e2baef93.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NSelectItem DisplayName="Select Item '-'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="[table.Rows(0).Item(&quot;Currency&quot;).ToString]" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="2">
+                                <x:String>-</x:String>
+                                <x:String>RON</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="654, 356, 305, 40" ElementType="DropDown" FriendlyName="'-'" FullSelectorArgument="&lt;webctrl id='currency' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='currency' tag='SELECT' type='' aaname='' /&gt;" Guid="eab3e404-1825-4f07-b277-994b1228231f" InformativeScreenshot="02019813c1f7ff431c536fa0a8ba4b29.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NSelectItem DisplayName="Select Item 'Fixă'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="[table.Rows(0).Item(&quot;Installment type&quot;).ToString]" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="1">
+                                <x:String>Fixă</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="654, 434, 305, 40" ElementType="DropDown" FriendlyName="'Fixă'" FullSelectorArgument="&lt;webctrl id='tip_dobanda' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tip_dobanda' tag='SELECT' type='' aaname='' /&gt;" Guid="7d4f260b-29d0-427e-958e-3fa4c82c9070" InformativeScreenshot="723ac7e1659dfcfbb2e4c435794d779b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NSelectItem DisplayName="Select Item 'Nu'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="[table.Rows(0).Item(&quot;Salary&quot;).ToString]" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="2">
+                                <x:String>Da</x:String>
+                                <x:String>Nu</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="654, 512, 305, 40" ElementType="DropDown" FriendlyName="'Nu'" FullSelectorArgument="&lt;webctrl id='client_s' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='client_s' tag='SELECT' type='' aaname='' /&gt;" Guid="cb8b4c50-e020-41cd-9b29-a2085158566b" InformativeScreenshot="7b48c42b50b993abb717deb9f9b0e377.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '3.000'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Text="[table.Rows(0).Item(&quot;Credit Amount&quot;).ToString]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="978, 581, 102, 44" ElementType="InputBox" FriendlyName="'3.000'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='' /&gt;" Guid="1b247e61-ea03-4cec-b222-6b3917858fee" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGYAAAAsCAYAAACXHM1oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAM+SURBVHhe7ZtbkqJAEEXZX+OihIW0so8R3EeLfikzou0T8NU5mVDQFFQxP+OUweTH6bC8SX3cQ6ERHVrb9AHM68FiXpSWmPh0gSjewnIVwXK5ZJ4JdkxdU+dND5KYzRGlRD8hTVO43W7w9fXFPBHqOMsyWKEg6r7uohJD1lZRpNyAeT4Rdl8/OZWYKN7kJ+XxeDAGSJIkf6y1xNDz7nq9Ki9ing91Tw7aYvDD6P64MwYhB2oxdxxgjKEVc8OQMYdeDH59Y8yhFXPFkDFHh5grYxC9GPzKxphDK+ZyvTAG0Yu54ABjDK2Y7JIxBtGLyXCgl0zBtSywBANvoZip84f5qVtlljUAb1HLkIU3qOUuTGtZF1oxKYb9YwHeoCzpGypbPS9LKXGnIpeklLgQiOvnkhTBwIN5tb8eWUxyB6IQk/aPhQeDqhxcl8W6gXq+mTfWgYuvce1Oi3l5PRc3AZ0i1bqbXIzwIYlJ0rT/BEXRTqDIkFDc8d95AA6JQbFhOodxXjSekPIasZ/tzRuzuv30dIhJek15dzuBOifaM6Jsy0EZ9dciD5x8nk5UMh+DTa8HYxRT5KFn57nthWI/PVox5yT5DxDl2lieIvcdKr4QI82jDF96LfJSjBPAORRianuHYyFmHIr99HSIOfcOuRh6L4SRTeXaMAr1805QvucLkSMsu7yWxIhciCn2r8/q9tOjFXM6n/tHOCruYixzolo38csT4CvXE3Gihn4xL69l6e11Nx1iTj1kJspp4EyKvBSFd/ksn5/AsDmLDH2xnz9sZZY1RMlFPhsVJ0Si2rsbrZgjhv1kBu91OSilylDMmyjvo5qX5byNZt/zhCTHhvewliEfkpwh/KhlXejFnHCAMYZWzOF0ZAwiidngHyIXc8QBxhjkoPQhidkfD4xBWMyLohdz2DMG0YrZYciYQy9mv2MMohXziSFjDr2YHQ4wxlCLoV81fW5hu/tkDEDd5w6aYqL1FtabWHkR83zWcYwONm0x8TFDY6vcHPPvoccY/dSvJYZY74v/ov2K1xBv0Z5iA+bvQR1T18vVEtaHpPJASGIIOjl0pOh5R5KYJ4Id00dI/aSUtMQwrwGLeUnu8ButdCP4fpBqBgAAAABJRU5ErkJggg==" InformativeScreenshot="df2b7382950fe6fead1dde4a88f47d81.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector, Image" />
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '1'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Text="[table.Rows(0).Item(&quot;Credit Period&quot;).ToString]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="980, 664, 98, 40" ElementType="InputBox" FriendlyName="'1'" FullSelectorArgument="&lt;webctrl id='val_perioada' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='val_perioada' tag='INPUT' type='text' aaname='' /&gt;" Guid="d1088ea2-455f-429b-895c-7b5bab5bd378" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGYAAAAsCAYAAACXHM1oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAImSURBVHhe7dtNctpAEIZhDmgOlfgiCQex43skJitJWBIghH4RjLsVgYVnWhtLaS2+xUO5qgcW/dYAVZQXUdYYmB+EmSkrTHgojR9ujecHxvM8mBLt2A/jduefO9yFCZPSBMHGFEVhTqeTuVwuMCHecVnSRaBAvPt+i1uY9qYEgfMFYHoB7b5/c25h+ErxTTmfz6Agz/P2I8QKw+93dV07nwTT491zg1uYkB4Yfxg15wYUcYNrj/swDR0ANWKYEw1BjxyGvr6BHjFMTUPQMxCmBkVyGPrKBnrEMFVdgSI5TEUHQI0YpqxKUCSHKekAjOTFPC4WZrFcmb/OuU0MU9AQRvDyaBYcpQuzdp1xGAhTwBetV8suyNIsb2HcZz8Tw+RFAV/0SmEeVmv6+5f53oV5dZxzGQiTw2iuYX5SGNfcJobJ8hxG04V5oDDOuW0gTAajee7C/KAwrrlNDHPMMhjNs/nWhfnjnNsGwhxhNE+9MK65TQyT0hDG8hHmt3Nuk8Mc6QCoEcMcjikoksOkdADUiGGS9ACKEGam5DCHBBSJYfY0BD1ymGQPisQwOxqCnrswb/TA2jB7OgBquMG1x0cYPzDxbmu2+x0o4N1zAysM/9NMGEfOJ8H0wigyXhjbYTaHkor5bTn4//htbJNWdhgWJP9+RXuLQhNtY+cLwHh4x7xrz/fa3fdb3IVh7c2hK8XvdxwJJkQ75o+Q/k25ssLAPCDMLDXmHewTixbcIcdyAAAAAElFTkSuQmCC" InformativeScreenshot="7236d685b5311d2705323a21c285c8a5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector, Image" />
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Afişează graficul'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/" DesignTimeRectangle="655, 729, 305, 40" ElementType="Button" FriendlyName="'Afişează graficul'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Afişează graficul de rambursare' check:text='Afişează graficul de rambursare' /&gt;" Guid="7e42aadc-0014-4bf2-86d4-26caeccf9be6" ImageBase64="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" InformativeScreenshot="577f0bb86abead09e0ca4ccc0f6a83b6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector, Image" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NGetText DisplayName="Get Text 'Rată lunară: 438,39'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/#results_div" DesignTimeRectangle="1130, 583, 124, 28" FriendlyName="'Rată lunară: 438,39'" FullSelectorArgument="&lt;webctrl id='rata_preview' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='rata_preview' tag='DIV' type='' /&gt;" Guid="1ffe003f-20a4-4340-b83e-a55e97e1cfa1" InformativeScreenshot="8ef14664ab4197461611528402bb9408.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[rata_lunara]</OutArgument>
+                            </uix:NGetText.Text>
+                          </uix:NGetText>
+                          <uix:NGetText DisplayName="Get Text 'Valoare DAE: 9,91%'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="2b200e60-fc09-483d-a622-e72a3dbb468a" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://calculator-rate-credit.bcr.ro/#results_div" DesignTimeRectangle="1130, 673, 124, 28" FriendlyName="'Valoare DAE: 9,91%'" FullSelectorArgument="&lt;webctrl id='dae_preview' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dae_preview' tag='DIV' type='' /&gt;" Guid="d74523c5-10ae-4d6e-94ef-182e2e7c0f35" InformativeScreenshot="94e92697e652b3fafdd933354f526a26.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[valoare_dae]</OutArgument>
+                            </uix:NGetText.Text>
+                          </uix:NGetText>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="1912, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="00242ddfe9a8e64db45d807536550a8c.png" Selector="&lt;html app='chrome.exe' title='Calculator Credit | Calculeaza-ti ratele cu simulator credite | BCR'/&gt;" Url="https://calculator-rate-credit.bcr.ro/" />
+                    </uix:NApplicationCard.TargetApp>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NApplicationCard>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">0,439.2</av:Point>
+                          <av:Size x:Key="ShapeSize">229.6,62.4</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">114.8,501.6 114.8,551.6</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Rata lunara: &quot;+rata_lunara.Split(&quot;:&quot;c).last.trim+&quot;Valoare dae: &quot;+valoare_dae.Split(&quot;:&quot;c).last.trim]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </WriteLine>
+                      <FlowStep.Next>
+                        <FlowStep x:Name="__ReferenceID5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">14.8,551.6</av:Point>
+                              <av:Size x:Key="ShapeSize">200,52.8</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">114.8,604.4 114.8,654.4</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:WriteCell Cell="H2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[Split(rata_lunara,&quot;:&quot;).last.ToString.Trim]" WorkbookPath="C:\Users\Alexandra\Downloads\Input File - Loans.xlsx">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:WriteCell>
+                          <FlowStep.Next>
+                            <FlowStep x:Name="__ReferenceID6">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">14.8,654.4</av:Point>
+                                  <av:Size x:Key="ShapeSize">200,52.8</av:Size>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:WriteCell Cell="I2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[Split(valoare_dae,&quot;:&quot;).Last.ToString.Trim]" WorkbookPath="C:\Users\Alexandra\Downloads\Input File - Loans.xlsx">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:WriteCell>
+                            </FlowStep>
+                          </FlowStep.Next>
+                        </FlowStep>
+                      </FlowStep.Next>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowDecision.True>
+          <FlowDecision.False>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">389.6,234.02</av:Point>
+                  <av:Size x:Key="ShapeSize">200,52.8</av:Size>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Error Excel&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MessageBox>
+            </FlowStep>
+          </FlowDecision.False>
+        </FlowDecision>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
+  </Flowchart>
+</Activity>
